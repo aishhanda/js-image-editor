@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main>
+        <section class="container">
+
+
+            <div class="left">
+
+
+                <div class="top">
+                    <label for="image-input" class="btn choose">
+                        Choose image
+                        <input type="file" id="image-input" hidden>
+                    </label>
+
+                    <button class="btn reset">Reset</button>
+                    <button class="btn download">Download</button>
+                </div>
+
+                <div class="bottom">
+                    <div class="preview-wrapper">
+                        <i class="fa-regular fa-image" style="font-size: 50px; color: gray; "></i>
+                        <h3 style="color: gray;">No file choosen</h3>
+                    </div>
+                    <img id="canvas" style="display: none;" />
+                </div>
+
+                
+
+            </div>
+
+            <div class="right">
+
+                <h2>Filters</h2>
+
+                <div class="filters">
+
+
+                    
+
+                </div>
+
+
+                <div class="presets">
+                    <h3>Presets</h3>
+                    <div class="preset-buttons">
+                        <button>drama</button>
+                        <button>vintage</button>
+                        <button>oldSchool</button>
+                        <button>cyberpunk</button>
+                        <button>softGlow</button>
+                        <button>noir</button>
+                        <button>warmSunset</button>
+                        <button>coolTone</button>
+                        <button>faded</button>
+                        <button>retroPop</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #111;
+    font-family: Arial, sans-serif;
+}
+
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 60px;
+}
+
+
+.left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.top {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.choose {
+    background: #ccc;
+}
+
+.reset {
+    background: #8d7d7d;
+    color: white;
+}
+
+.download {
+    background: #97a29c;
+    color: white;
+}
+
+
+.bottom {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.preview-wrapper {
+    position: absolute;
+    text-align: center;
+    color: #774242;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.preview-wrapper.hidden {
+    display: none !important;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#canvas {
+    display: none;
+    z-index: 2;
+    border: 2px solid #444;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: filter 0.1s ease;
+}
+
+.right {
+    flex: 1;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter label {
+    font-size: 14px;
+}
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #b5aaaa;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: rgb(247, 245, 245);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.presets {
+    margin-top: 20px;
+}
+
+.preset-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.preset-buttons button {
+    padding: 6px 10px;
+    background: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
