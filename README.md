@@ -53,12 +53,6 @@ style.css
 script.js
 ```
 
-## 💡 Future Improvements
 
-* Preset filters (vintage, noir, etc.)
-* Undo / redo functionality
-* Crop and rotate tools
-* Zoom and drag support
-* Mobile responsiveness improvements
 
 
