@@ -12,7 +12,6 @@ const filters = {
     invert: { value: 0, min: 0, max: 100, unit: '%' }
 };
 
-// ================== PRESETS ==================
 const presets = {
     drama: {
         brightness: 80,
@@ -126,7 +125,6 @@ const presets = {
     }
 };
 
-// ================== DOM ==================
 const imgElement = document.querySelector("#canvas");
 const imgInput = document.querySelector("#image-input");
 const container = document.querySelector(".filters");
@@ -134,7 +132,6 @@ const resetBtn = document.querySelector(".reset");
 const downloadBtn = document.querySelector(".download");
 const previewWrapper = document.querySelector(".preview-wrapper");
 
-// ================== CREATE FILTER UI ==================
 Object.keys(filters).forEach((filter) => {
     const el = createFilterElement(filter, filters[filter]);
     container.appendChild(el);
@@ -166,7 +163,6 @@ function createFilterElement(name, config) {
     return wrapper;
 }
 
-// ================== LOAD IMAGE ==================
 imgInput.addEventListener("change", (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -184,8 +180,7 @@ imgInput.addEventListener("change", (event) => {
     
     reader.readAsDataURL(file);
 });
-
-// ================== APPLY FILTERS ==================
+    
 function applyFilters() {
     if (!imgElement.src) {
         console.log("No image loaded");
@@ -206,25 +201,25 @@ function applyFilters() {
             case "brightness":
             case "contrast":
             case "saturate":
-                // CSS uses percentage format
+                
                 filterString += `${key}(${value}%) `;
                 break;
             case "grayscale":
             case "sepia":
             case "invert":
-                // Convert to percentage for CSS
+      
                 filterString += `${key}(${value}%) `;
                 break;
             case "opacity":
-                // Convert 0-100% to 0-1
+             
                 filterString += `${key}(${value / 100}) `;
                 break;
             case "hue-rotate":
-                // This uses degrees
+           
                 filterString += `${key}(${value}deg) `;
                 break;
             case "blur":
-                // This uses pixels
+              
                 filterString += `${key}(${value}px) `;
                 break;
             default:
@@ -235,11 +230,11 @@ function applyFilters() {
     const finalFilterString = filterString.trim();
     console.log("Final filter string:", finalFilterString);
     
-    // Apply CSS filter to the image
+  
     imgElement.style.filter = finalFilterString;
     console.log("Filters applied to image");
 }
-// ================== RESET ==================
+
 resetBtn.addEventListener("click", () => {
     for (let key in filters) {
         filters[key].value =
@@ -251,7 +246,7 @@ resetBtn.addEventListener("click", () => {
                 : 0;
     }
 
-    // update sliders
+    
     document.querySelectorAll("input[type='range']").forEach((input) => {
         const type = input.dataset.filter;
         input.value = filters[type].value;
@@ -260,14 +255,14 @@ resetBtn.addEventListener("click", () => {
     applyFilters();
 });
 
-// ================== DOWNLOAD ==================
+
 downloadBtn.addEventListener("click", () => {
     if (!imgElement.src) {
         alert("Please load an image first");
         return;
     }
     
-    // Create a canvas to draw the filtered image
+    
     const canvas = document.createElement("canvas");
     const img = new Image();
     
@@ -277,11 +272,11 @@ downloadBtn.addEventListener("click", () => {
         
         const ctx = canvas.getContext("2d");
         
-        // Apply the same filters to canvas
+        
         ctx.filter = imgElement.style.filter;
         ctx.drawImage(img, 0, 0);
         
-        // Download
+        
         const link = document.createElement("a");
         link.download = "edited-image.png";
         link.href = canvas.toDataURL();
@@ -291,7 +286,7 @@ downloadBtn.addEventListener("click", () => {
     img.src = imgElement.src;
 });
 
-// ================== PRESETS ==================
+
 const presetButtons = document.querySelectorAll(".preset-buttons button");
 
 presetButtons.forEach((button) => {
@@ -309,14 +304,14 @@ function applyPreset(presetName) {
     
     const preset = presets[presetName];
     
-    // Update filter values
+    
     for (let key in preset) {
         if (filters[key]) {
             filters[key].value = preset[key];
         }
     }
     
-    // Update sliders
+    
     document.querySelectorAll("input[type='range']").forEach((input) => {
         const type = input.dataset.filter;
         if (filters[type]) {
@@ -328,4 +323,4 @@ function applyPreset(presetName) {
     applyFilters();
 }
 
-}); // End of DOMContentLoaded
+}); 
